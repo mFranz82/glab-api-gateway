@@ -28,6 +28,7 @@
           "endpoint": "/cam/left/capture",
 	  "methode": "GET",
 	  "output_encoding": "no-op",
+	  "timeout": "5s",
           "backend": [
             {
               "url_pattern": "/capture",
@@ -42,6 +43,7 @@
           "endpoint": "/cam/right/capture",
 	  "methode": "GET",
 	  "output_encoding": "no-op",
+	  "timeout": "5s",
           "backend": [
             {
               "url_pattern": "/capture",
