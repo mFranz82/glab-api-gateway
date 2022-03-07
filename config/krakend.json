@@ -1,0 +1,56 @@
+{
+    "version": 2,
+    "extra_config": {
+	"github_com/devopsfaith/krakend-gologging": {
+      		"level": "DEBUG",
+      		"prefix": "[KRAKEND]",
+      		"syslog": false,
+      		"stdout": true,
+      		"format": "custom",
+      		"custom_format": "%{message}"
+    	},
+   	"github_com/devopsfaith/krakend-cors": {
+      		"allow_origins": [ "*" ],
+      		"allow_methods": [ "POST", "GET", "PUT", "DELETE" ],
+      		"allow_headers": [
+        		"Origin",
+        		"Authorization",
+        		"Content-Type",
+        		"Accept",
+        		"X-Auth-Token"
+      		],
+      		"expose_headers": [ "Content-Length" ],
+      		"max_age": "12h"
+    	}
+    },
+    "endpoints": [
+        {
+          "endpoint": "/cam/left/capture",
+	  "methode": "GET",
+	  "output_encoding": "no-op",
+          "backend": [
+            {
+              "url_pattern": "/capture",
+	      "encoding": "no-op",
+              "host": [
+                "http://192.168.4.16"
+              ]
+            }
+          ]
+        },
+        {
+          "endpoint": "/cam/right/capture",
+	  "methode": "GET",
+	  "output_encoding": "no-op",
+          "backend": [
+            {
+              "url_pattern": "/capture",
+	      "encoding": "no-op",
+              "host": [
+                "http://192.168.4.11"
+              ]
+            }
+          ]
+        }
+      ]
+}
